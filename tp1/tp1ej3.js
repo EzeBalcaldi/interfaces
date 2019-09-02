@@ -3,7 +3,7 @@ var ctx = canvas.getContext("2d");
 let imageData = ctx.createImageData(canvas.width,canvas.height);
 for(let x = 0; x < imageData.width; x++){
   for(let y = 0; y < imageData.height; y++){
-      setPixel(imageData, x, y, 238, 238, 0, 255);
+      setPixel(imageData, x, y, 150, 15, 0, 255);
   }
 }
 
