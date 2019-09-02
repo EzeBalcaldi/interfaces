@@ -4,7 +4,7 @@ let imageData = ctx.createImageData(canvas.width, canvas.height);
 let color = imageData;
 let aux = 0;
 let image1 = new Image();
-image1.src = "image1.jpg";
+image1.src = "images/image1.jpg";
 image1.crossOrigin = "Anonymous";
 image1.onload = function(){
   escalaDeGrises(this);
