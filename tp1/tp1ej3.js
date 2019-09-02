@@ -1,6 +1,6 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
-let imageData = ctx.createImageData(900,600);
+let imageData = ctx.createImageData(canvas.width,canvas.height);
 for(let x = 0; x < imageData.width; x++){
   for(let y = 0; y < imageData.height; y++){
       setPixel(imageData, x, y, 238, 238, 0, 255);
@@ -8,8 +8,6 @@ for(let x = 0; x < imageData.width; x++){
 }
 
 ctx.putImageData(imageData, 0, 0);
-console.log(imageData.width);
-
 function setPixel(imageData,x , y, r, g, b, a){
   let index = (x + y * imageData.width) * 4;
   imageData.data[index+0] = r;

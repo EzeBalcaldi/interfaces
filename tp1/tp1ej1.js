@@ -6,11 +6,10 @@ let maximoPares = 0;
 let minimoPares = 101;
 let promedio = [];
 let sumador = 0;
-let resultado = 0;
 for (let i = 0; i < filas; i++) {
   matriz[i] = [];
   for (let j = 0; j < columnas; j++) {
-    matriz[i][j] = Math.floor(Math.random() *100 )+1 + " ";
+    matriz[i][j] = Math.floor(Math.random() *100 )+1;
   }
 }
 for(let i = 0; i < filas; i++){
@@ -37,20 +36,13 @@ for (let i = 0; i < filas; i++) {
 // inciso 3, promedio en arreglos
 for (let i = 0; i < filas; i++) {
   for (let j = 0; j < columnas; j++) {
-    if(j < 100){
-      sumador += matriz[i][j]
-      if(j = 99){
-        resultado = sumador/100;
-        console.log("el promedio de la fila " +i + " es " +resultado)
-        promedio.push(resultado);
-        sumador = 0;
-      }
+      sumador += matriz[i][j];
     }
-  }
-}
-
-document.querySelector(".contenedor").innerHTML = matriz;
+    sumador = sumador/columnas;
+    console.log("el promedio de la fila " +i + " es " +sumador);
+    promedio.push(sumador);
+    sumador = 0;
+    }
 console.log("el maximo es " +maximo);
 console.log("el maximo de las pares es " +maximoPares)
 console.log("el minimo de los impares es " +minimoPares)
-console.log(promedio);

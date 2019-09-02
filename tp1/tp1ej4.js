@@ -3,7 +3,6 @@ var ctx = canvas.getContext("2d");
 let imageData = ctx.createImageData(canvas.width, canvas.height);
 let color = imageData;
 
-//se hace con for que vaya incrementando r g b a, empezando todos estos valores en 0?
 for(let i = 0; i < imageData.width; i++){
   for(let j = 0; j < imageData.height; j++){
     color.r = j/imageData.height * 255;
@@ -21,5 +20,3 @@ function setPixel(imageData,x , y, r, g, b, a){
   imageData.data[index+3] = a;
 
 }
-
-//despues llamo a setpixel y pongo el valor del color
