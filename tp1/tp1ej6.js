@@ -2,12 +2,12 @@ var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 let imageData = ctx.createImageData(canvas.width, canvas.height);
 let color = imageData;
-let cambioColor = 0;
+let aux = 0;
 let image1 = new Image();
 image1.src = "image1.jpg";
 image1.crossOrigin = "Anonymous";
 image1.onload = function(){
-  hola(this);
+  escalaDeGrises(this);
 }
   function getR(imageData,x,y){
   index = (x + y * imageData.width) * 4;
@@ -24,15 +24,15 @@ image1.onload = function(){
   return imageData.data[index + 2];
   }
 
-function hola(image1){
+function escalaDeGrises(image1){
   ctx.drawImage(image1, 0, 0);
   imageData = ctx.getImageData(0, 0, image1.width, image1.height);
     for(let i = 0; i <imageData.width; i++){
-      for(let j = 0; j < image1.height; j++){
-        cambioColor = (getR(imageData,i,j) + getG(imageData,i,j) + getB(imageData,i,j))/3;
-        color.r = cambioColor ;
-        color.g = cambioColor ;
-        color.b = cambioColor ;
+      for(let j = 0; j < imageData.height; j++){
+        aux = (getR(imageData,i,j) + getG(imageData,i,j) + getB(imageData,i,j))/3;
+        color.r = aux ;
+        color.g = aux ;
+        color.b = aux ;
         setPixel(imageData, i, j , color.r, color.g, color.b, 255);
         }
       }
