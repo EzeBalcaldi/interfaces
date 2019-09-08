@@ -1,4 +1,4 @@
-//modularicé todo y no sé por qué tarda en cargar el color en el canvas, sin estar modularizado funciona perfecto y rápido
+//modularicé todo y no sé por qué tarda en cargar el color en el canvas, sin estar modularizado funciona rápido
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 let imageData = ctx.createImageData(canvas.width, canvas.height);

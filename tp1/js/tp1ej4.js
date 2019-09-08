@@ -2,7 +2,6 @@ var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 let imageData = ctx.createImageData(canvas.width, canvas.height);
 let color = imageData;
-
 for(let i = 0; i < imageData.width; i++){
   for(let j = 0; j < imageData.height; j++){
     color.r = j/imageData.height * 255;

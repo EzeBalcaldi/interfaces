@@ -44,5 +44,5 @@ for (let i = 0; i < filas; i++) {
     sumador = 0;
     }
 console.log("el maximo es " +maximo);
-console.log("el maximo de las pares es " +maximoPares)
-console.log("el minimo de los impares es " +minimoPares)
+console.log("el maximo de las filas pares es " +maximoPares)
+console.log("el minimo de los filas impares es " +minimoPares)
