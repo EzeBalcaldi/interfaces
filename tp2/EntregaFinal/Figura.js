@@ -71,7 +71,7 @@ cerrarPoligono(){
           let d1 = Math.sqrt(Math.pow(e.clientX-this.centro.getcoordenadaX(),2)+Math.pow(e.clientY-this.centro.getcoordenadaY(),2))
           if (d1<this.centro.getRadio()){
             console.log("atroden");
-            figura[indice].mover(event, ctx);
+
             return true;
           }else{
             console.log("afuerovich");
@@ -80,21 +80,27 @@ cerrarPoligono(){
         }
 
 mover(e, ctx) {
-    this.centro.dibujar(ctx);
+  if(this.centro!=null){
+    //ctx.clearRect(0, 0, canvas.width, canvas.height);
     for (let i = 0; i < this.circulos.length; i++) {
         this.circulos[i].mover(e.clientX - this.centro.getcoordenadaX(), e.clientY - this.centro.getcoordenadaY())
         this.circulos[i].dibujar(ctx);
-        let a = e.clientX - this.centro.getcoordenadaX();
-        let b = e.clientY - this.centro.getcoordenadaY();
 
-        console.log("clientX " + e.clientX);
-        console.log("centro X " + this.centro.getcoordenadaX());
-        console.log("la resta de x es " + a);
-        console.log("clientY " + e.clientY);
-        console.log("centro Y " + this.centro.getcoordenadaY());
-        console.log("la resta de y es " + a);
     }
-
+    this.dibujarTodasLineas(ctx);
+    this.calcularCentro();
+}
 
 }
+
+dibujarTodasLineas(ctx){
+  for (let i = 0; i < this.circulos.length-1; i++) {
+    this.dibujarLinea(ctx,this.circulos[i], this.circulos[i+1])
+      //this.circulos[i].mover(e.clientX - this.centro.getcoordenadaX(), e.clientY - this.centro.getcoordenadaY())
+      //this.circulos[i].dibujar(ctx);
+  }
+    this.dibujarLinea(ctx,this.circulos[this.circulos.length-1],this.circulos[0] );
+
+}
+
 }

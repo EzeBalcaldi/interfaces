@@ -8,13 +8,13 @@ ctx.fillStyle = "rgba(125, 0, 150, 1)";
 ctx.fill();
 ctx.closePath();
 let indice = 0;
-let active = true;
+let active = false;
+let cerrado = false;
 figura[indice] = new Figura();
 
 
-if(active = true){
-canvas.addEventListener('mousedown', crearCirculo);
-}
+canvas.addEventListener('click', crearCirculo);
+
 
 function crearCirculo(evento){
         let mousePos = getCoordenadas (evento);
@@ -33,30 +33,36 @@ return{
 };
 }
 
-//
-// canvas.addEventListener("mousedown", function () {
-//     active = true;
-// });
+canvas.addEventListener("mousedown", function () {
+    active = true;
+});
 
 
-canvas.addEventListener("mousemove", function () {
-    //  figura[indice].clickCentro(evt);
-    if (active==true){
-      console.log("ESKEREEEEEEEEEEEEEEEEEEEE");
-
-        ctx.fillStyle = "rgba(125, 0, 150, 1)";
-    }
-
+canvas.addEventListener("mouseup", function () {
+active = false;
 })
 
-canvas.addEventListener("mouseup", function (event) {
+canvas.addEventListener("mousemove", function (event) {
+  if(cerrado === true && active === true && figura[indice].clickCentro(event)){
+    ctx.beginPath();
+    ctx.rect(0, 0, canvas.width,canvas.height);
+    ctx.fillStyle = "rgba(125, 0, 150, 1)";
+    ctx.fill();
+    ctx.closePath();
     figura[indice].mover(event, ctx);
-    //active = false;
+  }
 })
 
 
 
-let botonCerrar = document.getElementById("cerrar").addEventListener('click', function(){figura[indice].cerrarPoligono()});
+let botonCerrar = document.getElementById("cerrar").addEventListener('click', function(){
+cerrado = true;
+active = false;
+figura[indice].cerrarPoligono();
+ canvas.removeEventListener("click", crearCirculo);
+
+
+});
 
 // function hola(){
 //   figura[indice].cerrarPoligono();
