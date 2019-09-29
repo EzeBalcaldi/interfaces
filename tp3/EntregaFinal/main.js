@@ -61,7 +61,7 @@ function colisionArbol(){
     let valor2 = posicion.right - posicion2.right;
     let valor3 = posicion.top - posicion2.top;
 
-    if((valor2>-50 && valor2<50) && (valor3>-50 && valor3<50)){
+    if((valor2>-100 && valor2<100) && (valor3>-50 && valor3<50)){
       terminarJuego();
     }
     ;}, 100);
@@ -91,7 +91,7 @@ function colisionMoneda(){
         let valor3 = posicion.top - posicion2.top;
         console.log(valor3)
 
-        if((valor2>-50 && valor2<50) && (valor3>-100 && valor3<100)){ //colision moneda-pajaro
+        if((valor2>-30 && valor2<30) && (valor3>-100 && valor3<100)){ //colision moneda-pajaro
           colision = true;
           if(colision){
             let a = moneda.getBoundingClientRect().top;
