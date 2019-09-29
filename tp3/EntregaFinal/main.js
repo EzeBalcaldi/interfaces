@@ -1,12 +1,32 @@
-let valor = 2500;
 let colision = false;
-let cono = document.getElementById("aguila");
+let arbol = document.getElementById("arbol");
 let moneda = document.getElementById("moneda");
 let puntuacion = document.getElementById("puntuacion");
 let puntos = 0;
 let terminado = false;
-let perdiste = document.getElementById("perdiste"); //BORARR ESTO
-juego();
+let perdiste = document.getElementById("perdiste");
+let puntuacionFinal = document.getElementById("puntuacionFinal");
+let instrucciones = document.getElementById("instrucciones");
+let botonInstrucciones = document.getElementById("botonInstrucciones");
+botonInstrucciones.addEventListener("click", desplegarInstrucciones)
+
+
+perdiste.style.display = "none";
+  detenerMovimiento();
+
+document.querySelector(".jugar").addEventListener("click", function () {
+  document.querySelector(".jugar").style.display = "none"
+  terminado = false;
+  let cielo = document.getElementById("cielo").style.WebkitAnimationPlayState = "running";;
+  let montania = document.getElementById("montania").style.WebkitAnimationPlayState = "running";;
+  moneda.style.display = "initial";
+  arbol.style.display = "initial";
+    juego();
+});
+document.querySelector(".reiniciar").addEventListener("click", function () {
+    location = location;
+});
+
 function juego(){
   puntos = 0;
   actualizarPuntuacion();
@@ -20,11 +40,12 @@ function keyCode(event) {
   var x = event.keyCode;
   if (x == 87) {
   pajaro.className = " pajaro-salto";
-  setTimeout( () => {
-    pajaro.className = "pajaros";
-}, 1600);
+  pajaro.addEventListener("animationend", pajaroVolando);
 
 }
+}
+function pajaroVolando(){
+  pajaro.className = "pajaro";
 }
 function actualizarPuntuacion(){
   setInterval(function(){  puntuacion.innerHTML = "PUNTOS: " +puntos;}, 100);
@@ -35,7 +56,7 @@ function actualizarPuntuacion(){
  document.addEventListener('keydown', keyCode);
 
 function colisionArbol(){
-  setInterval(function(){  let posicion2 = cono.getBoundingClientRect();
+  setInterval(function(){  let posicion2 = arbol.getBoundingClientRect();
     let posicion = pajaro.getBoundingClientRect();
     let valor2 = posicion.right - posicion2.right;
     let valor3 = posicion.top - posicion2.top;
@@ -47,13 +68,14 @@ function colisionArbol(){
 
 }
 function movimientoArbol(){
+    let valor = 2500;
   let intervalo = setInterval(function(){
     if(valor < -200){
       valor = 2500;
     }
-    valor -= 7;
-    let moverCono = valor.toString().concat("px");
-    cono.style.left = moverCono;
+    valor -= 10;
+    let moverarbol = valor.toString().concat("px");
+    arbol.style.left = moverarbol;
     if( terminado){
       clearInterval(intervalo);
     }
@@ -72,6 +94,9 @@ function colisionMoneda(){
         if((valor2>-50 && valor2<50) && (valor3>-100 && valor3<100)){ //colision moneda-pajaro
           colision = true;
           if(colision){
+            let a = moneda.getBoundingClientRect().top;
+            a.innerHTML = "PUNTOS +10";
+
             moneda.className = " ";
             setTimeout( () => {
               moneda.className = "moneda";
@@ -85,11 +110,12 @@ function colisionMoneda(){
 
 }
 function movimientoMoneda(){
+  let valor = 2500;
   let intervalo = setInterval(function(){
     if(valor < -200){
       valor = 2500;
     }
-    valor -= 7;
+    valor -= 8;
     let moverMoneda = valor.toString().concat("px");
     moneda.style.left = moverMoneda;
     if( terminado){
@@ -98,12 +124,33 @@ function movimientoMoneda(){
   }, 1000/60);
 
 }
+function detenerMovimiento(){
+let cielo = document.getElementById("cielo").style.WebkitAnimationPlayState = "paused";;
+let montania = document.getElementById("montania").style.WebkitAnimationPlayState = "paused";;
+moneda.style.display = "none";
+arbol.style.display = "none";
+document.removeEventListener("keydown", keyCode);
+
+
+}
 function terminarJuego(){
 terminado = true;
-perdiste.className = " ";
+detenerMovimiento();
+perdiste.style.display = "initial";
+puntuacionFinal.innerHTML = "Tu puntuación fue de " + puntos;
+pajaro.className = "pajaro-muerto";
 document.removeEventListener("keydown", keyCode);
 
 }
+function desplegarInstrucciones(){
+  if(instrucciones.style.visibility == "hidden"){
+    instrucciones.style.visibility = "visible";
+  }else{
+    instrucciones.style.visibility = "hidden";
+
+  }
+}
 
 
-// falta hacer menu, pasar todo a request frame y hacer mas lindo el codigo, hacer que se generen las cosas en posiciones "random",  falta hacer animacion cuando muere el pajaro y borrar el arbol
+
+// pasasr todoa  request frame

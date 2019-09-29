@@ -4,12 +4,17 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   </head>
   <body>
-    <div class="game">
-      <div class="cielo">
-        <div class="montania">
-          <div class="pajaros" id="pajaro" ></div>
+    <div class="juego">
+      <div class="cielo" id="cielo">
+        <div class="montania" id="montania">
+          <div id="perdiste">
+                <p>Perdiste!</p>
+                <span id="puntuacionFinal"></span>
+                </div>
+          <div class="pajaro" id="pajaro" ></div>
           <div class="aguila" id="aguila"></div>
           <div class="moneda" id="moneda"></div>
           <span class="puntuacion" id="puntuacion"></span>
@@ -17,9 +22,14 @@
         </div>
       </div>
     </div>
-    <h1>con la w saltas,no la apretes muchas veces xq me rompes el juego XD</h1>
-    <div class="perdiste" id="perdiste">
-      <h1>perdiste</h1>
+    <div class="container">
+                <button type="button" class="btn btn-dark jugar">Play</button>
+                <button type="button" class="btn btn-dark reiniciar">Restart</button>
+                <button type="button" class="btn btn-dark" id="botonInstrucciones">Instrucciones</button>
+        </div>
+        <div class="instrucciones" id="instrucciones" >
+          <p>Apretando la W, el pajaro saltará, y tu objetivo es esquivar los árboles a la vez que juntas monedas para lograr una puntuación cada vez mayor.</p>
+        </div>
     </div>
   </body>
   <script src="main.js" charset="utf-8"></script>
