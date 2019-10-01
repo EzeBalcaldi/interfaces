@@ -7,17 +7,20 @@ let terminado = false;
 let perdiste = document.getElementById("perdiste");
 let puntuacionFinal = document.getElementById("puntuacionFinal");
 let instrucciones = document.getElementById("instrucciones");
+//let displayPuntos = document.getElementById("puntos");
 let botonInstrucciones = document.getElementById("botonInstrucciones");
 botonInstrucciones.addEventListener("click", desplegarInstrucciones)
 
-
+document.querySelector(".reiniciar").style.display = "none";
 perdiste.style.display = "none";
   detenerMovimiento();
 
 document.querySelector(".jugar").addEventListener("click", function () {
+  document.querySelector(".reiniciar").style.display = "initial";
   document.querySelector(".jugar").style.display = "none"
   terminado = false;
-  let cielo = document.getElementById("cielo").style.WebkitAnimationPlayState = "running";;
+  let cielo = document.getElementById("cielo").style.WebkitAnimationPlayState = "running";
+  //let pajaro = document.getElementById("pajaro").style.WebkitAnimationPlayState = "running";
   let montania = document.getElementById("montania").style.WebkitAnimationPlayState = "running";;
   moneda.style.display = "initial";
   arbol.style.display = "initial";
@@ -56,10 +59,10 @@ function actualizarPuntuacion(){
  document.addEventListener('keydown', keyCode);
 
 function colisionArbol(){
-  setInterval(function(){  let posicion2 = arbol.getBoundingClientRect();
-    let posicion = pajaro.getBoundingClientRect();
-    let valor2 = posicion.right - posicion2.right;
-    let valor3 = posicion.top - posicion2.top;
+  setInterval(function(){  let posicionArbol = arbol.getBoundingClientRect();
+    let posicionPajaro = pajaro.getBoundingClientRect();
+    let valor2 = posicionPajaro.right - posicionArbol.right;
+    let valor3 = posicionPajaro.top - posicionArbol.top;
 
     if((valor2>-100 && valor2<100) && (valor3>-50 && valor3<50)){
       terminarJuego();
@@ -85,18 +88,21 @@ function movimientoArbol(){
 }
 
 function colisionMoneda(){
-      setInterval(function(){  let posicion2 = moneda.getBoundingClientRect();
-        let posicion = pajaro.getBoundingClientRect();
-        let valor2 = posicion.right - posicion2.right;
-        let valor3 = posicion.top - posicion2.top;
-        console.log(valor3)
+      setInterval(function(){  let posicionMoneda = moneda.getBoundingClientRect();
+        let posicionPajaro = pajaro.getBoundingClientRect();
+        let valor2 = posicionPajaro.right - posicionMoneda.right;
+        let valor3 = posicionPajaro.top - posicionMoneda.top;
 
         if((valor2>-30 && valor2<30) && (valor3>-100 && valor3<100)){ //colision moneda-pajaro
           colision = true;
           if(colision){
-            let a = moneda.getBoundingClientRect().top;
-            a.innerHTML = "PUNTOS +10";
+          //   let intervalo = setInterval(function(){
+          //     displayPuntos.style.visibility = "visible";
+          //     displayPuntos.innerHTML = "PUNTOS +10";
+          // }, 100);
+          // displayPuntos.style.visibility = "hidden";
 
+          //intenté hacer que cuando agarres una moneda te muestre en esa posicion un texto diciendo que ganaste 10 puntos, pero no lo pude hacer andar
             moneda.className = " ";
             setTimeout( () => {
               moneda.className = "moneda";
@@ -125,8 +131,9 @@ function movimientoMoneda(){
 
 }
 function detenerMovimiento(){
-let cielo = document.getElementById("cielo").style.WebkitAnimationPlayState = "paused";;
-let montania = document.getElementById("montania").style.WebkitAnimationPlayState = "paused";;
+let cielo = document.getElementById("cielo").style.WebkitAnimationPlayState = "paused";
+//let pajaro = document.getElementById("pajaro").style.WebkitAnimationPlayState = "paused";
+let montania = document.getElementById("montania").style.WebkitAnimationPlayState = "paused";
 moneda.style.display = "none";
 arbol.style.display = "none";
 document.removeEventListener("keydown", keyCode);
@@ -143,14 +150,10 @@ document.removeEventListener("keydown", keyCode);
 
 }
 function desplegarInstrucciones(){
-  if(instrucciones.style.visibility == "hidden"){
+  if(instrucciones.style.visibility === "hidden"){
     instrucciones.style.visibility = "visible";
   }else{
     instrucciones.style.visibility = "hidden";
 
   }
 }
-
-
-
-// pasasr todoa  request frame

@@ -10,7 +10,7 @@
   background-attachment: fixed;
   background-position: bottom left;
   z-index: -6;
-  background:  url("1c.png") 20% 0 repeat;
+  background:  url("../images/cielo.png") repeat;
   width: 100%;
   height: 600px;
   animation: movimiento 30s linear infinite;
@@ -20,7 +20,7 @@
   background-attachment: fixed;
   background-position: bottom left;
   z-index: -1;
-  background:  url("1m.png") repeat;
+  background:  url("../images/montania.png") repeat;
   width: 100%;
   height: 600px;
   animation: movimiento 15s linear infinite;
@@ -36,6 +36,8 @@ left: 40%;
 color: red;
 font-size: 100px;
 display: block;
+font-family: "Comic Sans MS", cursive, sans-serif;
+
 }
 .instrucciones{
   margin-top: 15px;
@@ -49,9 +51,9 @@ width: 340px;
 height: 240px;
 position: absolute;
 left: 0;
-top: 60%;
-z-index: 2;
-background: url('pajaros.png') left center;
+top: 56%;
+z-index: 1;
+background: url('../images/pajaros.png') left center;
 animation: pajaro 1.6s steps(9) infinite;
 }
 .arbol{
@@ -59,19 +61,19 @@ animation: pajaro 1.6s steps(9) infinite;
   height: 300px;
   position: absolute;
   left: 300px;
-  top: 55%;
-  background: url('arboldef.png') left center;
+  top: 56%;
+  z-index: 1;
+  background: url('../images/arbol.png') left center;
 }
-
 .pajaro-salto{
 width: 340px;
 height: 240px;
 position: absolute;
 left: 0;
-top: 60%;
+top: 56%;
 z-index: 2;
-background: url('pajaros.png') left center;
-animation: pajaro-salto  1.6s steps(9);
+background: url('../images/pajaros.png') left center;
+animation: pajaro-salto  1.3s steps(9);
 }
 .moneda{
 position: absolute;
@@ -79,7 +81,7 @@ top: 30%;
 left: 60%;
 width: 100px;
 height: 100px;
-background: url('moneda-sprite.png') left center;
+background: url('../images/moneda-sprite.png') left center;
 animation: moneda 0.6s steps(10) infinite;
 }
 .pajaro-muerto{
@@ -90,14 +92,17 @@ animation: moneda 0.6s steps(10) infinite;
   left: 0;
   z-index: 2;
   top: 80%;
-  background: url('pajaro-muerto.png') left center;
+  background: url('../images/pajaro-muerto.png') left center;
 }
-
+/* #puntos{
+  visibility: hidden;
+} */
 .puntuacion{
   position: absolute;
   right: 0%;
   top: 0%;
   color: red;
+  font-family: "Comic Sans MS", cursive, sans-serif;
 }
 #puntuacionFinal{
   font-size: 60px;
@@ -111,27 +116,11 @@ to{
 }
 }
 @keyframes pajaro-salto {
- 0% {v
-   left: 0;
-   top: 60%;
-}
-25%{
-  left: 0;
-  top: 30%;
-}
-50%{
-  left: 0;
-  top: 15%;
-}
-75%{
-  left: 0;
-  top: 30%;
-}
-100%{
-  left: 0;
-  top: 60%;
-}
- 100% { background-position: -3260px; }
+0% {top: 56%; background-position-x: 0;}
+25% {top: 35%;}
+50% {top: 15%;}
+75% {top: 35%;}
+100% {top: 56%; background-position-x: -3260px;}
 }
 @keyframes movimiento {
   from {

@@ -2,12 +2,12 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="main.css">
+    <title>Trabajo práctico 3</title>
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   </head>
   <body>
-    <div class="juego">
+    <div class="juego" id="juego">
       <div class="cielo" id="cielo">
         <div class="montania" id="montania">
           <div id="perdiste">
@@ -16,21 +16,24 @@
                 </div>
           <div class="pajaro" id="pajaro" ></div>
           <div class="arbol" id="arbol"></div>
-          <div class="moneda" id="moneda"></div>
+           <div class="moneda" id="moneda"><!--<span id ="puntos" style="visibility:hidden"></span>--></div> 
           <span class="puntuacion" id="puntuacion"></span>
           </div>
         </div>
       </div>
     </div>
     <div class="container">
-                <button type="button" class="btn btn-dark jugar">Play</button>
-                <button type="button" class="btn btn-dark reiniciar">Restart</button>
+                <button type="button" class="btn btn-dark jugar">Jugar</button>
+                <button type="button" class="btn btn-dark reiniciar">Reiniciar</button>
                 <button type="button" class="btn btn-dark" id="botonInstrucciones">Instrucciones</button>
         </div>
-        <div class="instrucciones" id="instrucciones" >
-          <p>Apretando la W, el pajaro saltará, y tu objetivo es esquivar los árboles a la vez que juntas monedas para lograr una puntuación cada vez mayor.</p>
-        </div>
+        <div class="instrucciones"  id="instrucciones" style="visibility:hidden">
+                    <div class="jumbotron">
+                      <h1>Instrucciones</h1>
+                      <p class="lead">Apretando la W, el pajaro saltará, y tu objetivo es esquivar los árboles a la vez que juntas monedas para lograr una puntuación cada vez mayor.</p>
+                    </div>
+                </div>
     </div>
   </body>
-  <script src="main.js" charset="utf-8"></script>
+  <script src="js/main.js" charset="utf-8"></script>
 </html>
