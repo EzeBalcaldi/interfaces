@@ -182,7 +182,6 @@ mix-blend-mode: normal;
 }
 
 .espacio{
-
   display: inline-block;
   float: left;
   margin-left: 20px;
@@ -322,24 +321,16 @@ background: #F0F0F0;
   width: 100%;
 
 }
-
-.ubicacion{
-  width: 50%;
-
-  top: 0%;
-
-}
-
-@media (max-width: 460px) {
+@media (max-width: 600px) {
   .ubicacion {
-    width: 80%;
+    width: 100%;
     top: 0%;
   }
   }
 
-  @media (min-width: 560px) {
+  @media (min-width: 600px) {
     .ubicacion {
-      width: 50%!important;
+      width: 50%;
       top: 0%;
     }
     }
@@ -349,5 +340,6 @@ margin-bottom: 10%;
 
 }
 .sombreado{
+  width: 80%!inherit;
   background: rgba(0, 0, 0, 0.85);
 }
