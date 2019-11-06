@@ -1,0 +1,63 @@
+body{
+  background-color: #000000;
+}
+.flecha{
+  position: absolute;
+  margin-top: 2%;
+}
+h1{
+  color: white;
+    position: absolute;
+    margin-left: 40%;
+    margin-top: 2%;
+  font-size: 40px;
+
+
+}
+.logo{
+    position: absolute;
+    margin-top: 2%;
+    margin-left: 95%;
+}
+.play{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+}
+h2{
+  color: white;
+  position: absolute;
+  margin-left: 40%;
+  bottom:0%;
+}
+.linea{
+position: absolute;
+width: 99.5%;
+bottom: 8%;
+border: 1px solid #FFFFFF;
+transform: rotate(180deg);
+}
+.dot{
+  position: absolute;
+  background: #FFFBA3;
+  width: 10px;
+  height: 10px;
+  border-radius: 50px;
+  left: 0%;
+  bottom: 7.5%;
+}
+.volumen{
+  position: absolute;
+  bottom: 2%;
+  left: 5%;
+}
+.pausa{
+  position: absolute;
+  bottom: 2%;
+  left: 1%;
+}
+.fullscreen{
+  position: absolute;
+  bottom: 2%;
+  right: 1%;
+}

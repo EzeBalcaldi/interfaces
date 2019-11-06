@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Información de pago - Netflics</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/informacionPago.css">
+  </head>
+  <body>
+    <div class="container-fluid">
+    	<div class="col-md-16">
+        <h1>Información de pago</h1>
+        <form>
+      <div class="form-group align-items-center">
+        <label for="">Nombre en tarjeta</label>
+        <input type="text" class="form-control" id="nombreInput" aria-describedby="nombreHelp" placeholder="Nombre de propietario" required="required" id="nombreInput">
+      </div>
+      <div class="form-group align-items-center">
+        <label for="exampleInputEmail1">Numero de tarjeta</label>
+        <input type="text" class="form-control" id="numeroInput" aria-describedby="numeroInput" placeholder="Número de tarjeta" required="required"  maxlength="19" size="19">
+      </div>
+      <div class="form-group ">
+        <label for="exampleInputPassword1">CCV</label>
+        <input type="password" class="form-control" id="inputCCV" placeholder="Código de seguridad" maxlength="3" size="3" required="required">
+      </div>
+      <div class="form-group ">
+        <label for="exampleInputFecha">Fecha de expiración</label>
+        <select>
+                    <option value="01">Enero</option>
+                    <option value="02">Febrero </option>
+                    <option value="03">Marzo</option>
+                    <option value="04">Abril</option>
+                    <option value="05">Mayo</option>
+                    <option value="06">Junio</option>
+                    <option value="07">Julio</option>
+                    <option value="08">Agosto</option>
+                    <option value="09">Septiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembre</option>
+                    <option value="12">Diciembre</option>
+                </select>
+                <select>
+                    <option value="20"> 2020</option>
+                    <option value="21"> 2021</option>
+                    <option value="22"> 2022</option>
+                    <option value="23"> 2023</option>
+                    <option value="24"> 2024</option>
+                    <option value="25"> 2025</option>
+                </select>
+      </div>
+      <div class="form-group" id="credit_cards">
+      <img src="img/visa.jpg" width="80px" heigth= 80px; id="visa">
+      <img src="img/mastercard.jpg" width="80px" heigth= 80px; id="mastercard">
+  </div>
+  <a href="home.html"><button type="button" class="btn btn-success" id="botonPlanes">Finalizar</button></a>
+<a href="login.html"><button type="button" class="btn btn-danger" id="botonPlanes">Cancelar</button></a>
+    </form>
+      </div>
+    </div>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="informacionPago.js" charset="utf-8"></script>
+  <script src="js/card.js"></script>
+
+</html>
